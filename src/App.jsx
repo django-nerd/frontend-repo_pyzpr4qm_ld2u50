@@ -1,28 +1,35 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import StrategyShowcase from './components/StrategyShowcase';
+import Footer from './components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Navbar() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur border-b border-white/10 bg-[#0a0f14]/60">
+      <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between text-white">
+        <a href="#" className="font-semibold tracking-tight">Luxe Portfolio</a>
+        <nav className="hidden sm:flex items-center gap-6 text-sm text-white/70">
+          <a href="#learn-more" className="hover:text-white">Features</a>
+          <a href="#get-started" className="hover:text-white">Strategies</a>
+          <a href="#footer" className="hover:text-white">Contact</a>
+          <a href="#" className="rounded-md bg-white/10 hover:bg-white/15 px-3 py-1.5">Sign in</a>
+        </nav>
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen bg-[#0a0f14] font-inter">
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <StrategyShowcase />
+      </main>
+      <Footer />
+    </div>
+  );
+}
